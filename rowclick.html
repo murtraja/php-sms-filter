@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title> row click test </title>
+		<style>
+		.highlight{
+			background-color: #FFCF8B
+		}
+		table{
+			border-collapse: collapse;
+		}
+		td{
+			padding: 5px;
+		}
+		table#first tr:hover {
+			background-color: #FFCF8B;
+			font-weight: bold;
+		}
+		</style>
+		<script type='text/javascript' src = 'jquery-2.2.0.min.js'></script>
+		<script type='text/javascript'>
+		$(document).ready(function(){
+			var records = $('table#first tr').slice(1);
+			var clickHandler = function(row){
+				row.toggleClass('highlight');
+				row.trigger("bgChange");
+			}
+			$('#b_toggle').click(function(){
+				$.each(records, function(){
+					clickHandler($(this));
+					
+				});
+			});
+			$('#b_all').click(function(){
+				$.each(records, function(){
+					$(this).addClass("highlight");
+					$(this).trigger("bgChange");
+				});
+			});
+			$("#b_none").click(function(){
+				$.each(records, function(){
+					$(this).removeClass("highlight");
+					$(this).trigger("bgChange");
+				});
+			});
+			records.bind("bgChange", function(){
+				//console.log($.param($('.highlight')));
+			});
+			records.click(function(){
+				clickHandler($(this));
+			});
+			records.hover(
+				function(evt){
+					if(evt.ctrlKey)
+					{
+						clickHandler($(this));
+					}
+					//$(this).css("font-weight", "bold");
+				},
+				function(){
+					//$(this).css("font-weight", "normal");				
+			});
+		});
+		</script>
+		
+	
+	</head>
+	<body>
+		<input id = "b_toggle" type="button" value = "toggle"/>
+		<input id = "b_all" type="button" value = "select all"/>
+		<input id = "b_none" type = "button" value = "select none"/>
+		<table id = 'first'>
+			<thead>
+				<tr><th>No</th><th>Name</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>1</td><td>Murtaza</td></tr>
+				<tr><td>2</td><td>Murtaza</td></tr>
+				<tr><td>3</td><td>Murtaza</td></tr>
+				<tr></td><td>4</td><td>Murtaza</td></tr>
+				<tr><td>5</td><td>Murtaza</td></tr>
+				<tr><td>6</td><td>Murtaza</td></tr>
+				<tr><td>7</td><td>Murtaza</td></tr>
+			</tbody>
+		</table>
+		<table id = 'second'>
+    <thead>
+      <tr><th>content</th><th>content</th><th>content</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>content</td><td>content</td><td>content</td></tr>
+        <tr><td>content</td><td>content</td><td>content</td></tr>
+        <tr><td>content</td><td>content</td><td>content</td></tr>
+        <tr><td>content</td><td>content</td><td>content</td></tr>
+        <tr><td>content</td><td>content</td><td>content</td></tr>
+    </tbody>
+</table>
+	</body>
+</html>

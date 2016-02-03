@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <br>
         <p id = 'query_status'></p>
         <table style='border: solid 1px black;' id = 'recipientTable'>
-            <tr><th>Thali No.</th><th>Name</th><th>Mob No.</th><th>Transporter</th><th>Amount</th></tr>
+            <tr><th>#</th><th>Thali No.</th><th>Name</th><th>Mob No.</th><th>Transporter</th><th>Amount</th></tr>
         </table>
     </body>
 </html>

@@ -44,7 +44,7 @@ $(document).ready(function(){
 				//alert("total:"+records.length);
 				for(index=0; index<records.length; index++)
 				{
-					html+="<tr>";
+					html+="<tr><td>"+(index+1)+"</td>";
 					record = records[index];
 					for(var key in record){
 						html+= "<td>"+record[key]+"</td>";

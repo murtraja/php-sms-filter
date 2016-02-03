@@ -42,13 +42,7 @@ $checkbox_html.="<br>\n";
 	<script type='text/javascript'>
 	var transporters = null;
 	$(document).ready(function(){
-		$('#getCheckedTransporters').click(function(){
-			var t = $("input:checkbox:checked[name='transporters[]']").map(function(){
-				return "'"+this.value+"'";
-			}).get();
-			console.log(t);
-			console.log(t.join());
-		});
+		$.getScript("checkbox.js");
 
 
 		$('#checkedTransporters').html("hi");

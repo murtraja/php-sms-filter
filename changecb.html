@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title> row click test </title>
+		<style>
+		.highlight{
+			background-color: #FFCF8B
+		}
+		/*tr:hover, tr.selected {
+		    background-color: #FFCF8B
+		}
+		td {padding: 5px;}
+		table{
+			border-collapse: collapse;
+		}*/
+		</style>
+		<script type='text/javascript' src = 'jquery-2.2.0.min.js'></script>
+		<script type='text/javascript'>
+		$(document).ready(function(){
+			$('input:checkbox').change(function(){
+				console.log("changed");
+			});
+		});
+		</script>
+		
+	
+	</head>
+	<body>
+				<input name = 'f' type="checkbox"/>
+				<input type="checkbox"/>
+				<input type="checkbox"/>
+				<input type="checkbox"/>
+				<input type="checkbox"/>
+				<input type="checkbox"/>
+				<input type="checkbox"/>
+	</body>
+</html>
