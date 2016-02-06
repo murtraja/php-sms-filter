@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
 	//alert("jquery loaded!");
 	$('#transporter_param').hide();
 	var getCheckedTransporters = function(){
@@ -38,7 +38,8 @@ $(document).ready(function(){
 			if(json['result'] == "success")
 			{
 				// now populate the table with new records!
-				$("#recipientTable td").parent().remove();
+				//$("#recipientTable td").parent().remove();
+				$('#recipientTableBody').html("");
 				var html = "";
 				var records = json['data'];
 				//alert("total:"+records.length);
@@ -51,8 +52,14 @@ $(document).ready(function(){
 					}
 					html+="</tr>\n";
 				}
-				$('#recipientTable').append(html);
+				$('#recipientTableBody').html(html);
 				$('#query_status').html("Fetched "+records.length+" record(s)");
+				if(records.length > 0) {
+					$('#selectionButtons').show();
+				}
+				else{
+					$('#selectionButtons').hide();
+				}
 			}
 			else
 			{
@@ -96,6 +103,4 @@ $(document).ready(function(){
 			break;
 		}
 	});
-
-
-});
+	//$('#filterButton').click();

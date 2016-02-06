@@ -26,9 +26,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 <html>
    <head>
        <title> SMS filtering </title>
-       
+       <style type='text/css'>
+       .highlight{
+            background-color: #FFCF8B
+        }
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            padding: 5px;
+        }
+        tbody#recipientTableBody tr:hover {
+            background-color: #FFCF8B;
+            font-weight: bold;
+        }
+       </style>
        <script type='text/javascript' src = 'https://code.jquery.com/jquery-2.2.0.min.js'></script>
-       <script type='text/javascript' src="filter.js"></script>
+       <script type='text/javascript'>
+            $(document).ready(function(){
+                $.getScript("filter.js");
+                $.getScript("selection.js");
+            
+            });
+       </script>
     </head>
     <body>
         <p> Apply filtering on amount to select the recipients</p>
@@ -58,9 +78,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <br>
         <button id='filterButton'>Filter</button>
         <br>
+        <div id ='selectionButtons' hidden>
+        <input id = "b_toggle" type="button" value = "toggle"/>
+        <input id = "b_all" type="button" value = "select all"/>
+        <input id = "b_none" type = "button" value = "select none"/>
+        </div>
         <p id = 'query_status'></p>
-        <table style='border: solid 1px black;' id = 'recipientTable'>
+        <p id='selection_status'></p>
+        <table style='' id = 'recipientTable'>
+        <thead>
             <tr><th>#</th><th>Thali No.</th><th>Name</th><th>Mob No.</th><th>Transporter</th><th>Amount</th></tr>
+        </thead>
+        <tbody id = 'recipientTableBody'>
+        </tbody>
         </table>
     </body>
 </html>
